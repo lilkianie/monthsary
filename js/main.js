@@ -2,8 +2,8 @@
    CONFIG — customize these before sharing!
    ───────────────────────────────────────────── */
 
-// Your Spotify playlist ID or full playlist URL
-const SPOTIFY_PLAYLIST_ID = 'https://open.spotify.com/playlist/6coME0MTfjyKBVz69rKCYt?si=685c526c7085452c&pt=571c6f8516fbdb3d1a5b492a03660ea2';
+// Your Spotify playlist ID or full URL — playlist MUST be public to embed
+const SPOTIFY_PLAYLIST_ID = '6coME0MTfjyKBVz69rKCYt';
 
 // Lock screen & avatar background
 const COUPLE_PHOTO = 'images/couple.jpg';
@@ -371,14 +371,50 @@ let spotifyCreating = false;
 function getSpotifyPlaylistId(input) {
   if (!input || input === 'PLAYLIST_ID') return null;
   const match = String(input).match(/playlist\/([a-zA-Z0-9]+)/);
-  return match ? match[1] : input;
+  return match ? match[1] : input.trim();
 }
 
-function initSpotify() {
-  renderVisibleSpotifyEmbed();
+function getSpotifyPlaylistUrl() {
+  const id = getSpotifyPlaylistId(SPOTIFY_PLAYLIST_ID);
+  return id ? `https://open.spotify.com/playlist/${id}` : null;
+}
+
+async function verifySpotifyPlaylist(playlistId) {
+  if (!playlistId) return false;
+  try {
+    const res = await fetch(
+      `https://open.spotify.com/oembed?url=https://open.spotify.com/playlist/${playlistId}`
+    );
+    return res.ok;
+  } catch {
+    return false;
+  }
+}
+
+function showSpotifyFallback() {
+  const embedEl = document.getElementById('spotify-embed-visible');
+  const fallbackEl = document.getElementById('spotify-fallback');
+  const url = getSpotifyPlaylistUrl();
+  if (embedEl) embedEl.innerHTML = '';
+  if (fallbackEl) {
+    fallbackEl.hidden = false;
+    const link = fallbackEl.querySelector('.spotify-open-link');
+    if (link && url) link.href = url;
+  }
+}
+
+async function initSpotify() {
   initVinylControls();
-  document.addEventListener('spotify-api-ready', () => createSpotifyController());
-  if (window.__spotifyIFrameAPI) createSpotifyController();
+  const playlistId = getSpotifyPlaylistId(SPOTIFY_PLAYLIST_ID);
+  const isEmbeddable = await verifySpotifyPlaylist(playlistId);
+
+  if (isEmbeddable) {
+    renderVisibleSpotifyEmbed();
+    document.addEventListener('spotify-api-ready', () => createSpotifyController());
+    if (window.__spotifyIFrameAPI) createSpotifyController();
+  } else {
+    showSpotifyFallback();
+  }
 }
 
 function renderVisibleSpotifyEmbed() {
@@ -433,6 +469,11 @@ function createSpotifyController(onReady) {
 }
 
 function initSpotifyPlayer(autoplay) {
+  if (!spotifyController && !document.getElementById('spotify-fallback')?.hidden) {
+    const url = getSpotifyPlaylistUrl();
+    if (url && autoplay) window.open(url, '_blank', 'noopener');
+    return;
+  }
   if (autoplay) spotifyPlayPending = true;
   if (spotifyController) {
     if (autoplay) startSpotifyPlayback();
