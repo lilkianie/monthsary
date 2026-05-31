@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our 1st Monthsary ♥</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=SF+Pro+Display:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    window.onSpotifyIframeApiReady = function (IFrameAPI) {
+      window.__spotifyIFrameAPI = IFrameAPI;
+      document.dispatchEvent(new Event('spotify-api-ready'));
+    };
+  </script>
+  <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
+</head>
+<body>
+
+  <!-- ═══════════════════ MACBOOK LOCK SCREEN ═══════════════════ -->
+  <div id="lockscreen" class="lockscreen">
+    <div class="lockscreen-bg" id="lockscreen-bg"></div>
+    <div class="lockscreen-overlay"></div>
+
+    <div class="lockscreen-content">
+      <div class="lockscreen-time" id="lock-time">12:00</div>
+      <div class="lockscreen-date" id="lock-date">Sunday, June 1</div>
+
+      <div class="lockscreen-user">
+        <div class="lockscreen-avatar">
+          <img src="images/couple.jpg" alt="Us" id="avatar-img">
+        </div>
+        <p class="lockscreen-name">Happy 1st Monthsary</p>
+      </div>
+
+      <form class="lockscreen-form" id="unlock-form" autocomplete="off">
+        <div class="password-field" id="password-field">
+          <input
+            type="password"
+            id="password-input"
+            placeholder="Enter password"
+            aria-label="Enter our special date"
+            maxlength="20"
+          >
+          <button type="submit" class="unlock-btn" aria-label="Unlock">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+        </div>
+        <p class="unlock-hint">Hint: the day we became official 💕</p>
+        <p class="unlock-error" id="unlock-error" hidden>Wrong date — try again, love</p>
+      </form>
+    </div>
+
+    <div class="lockscreen-footer">
+      <span>🔋 100%</span>
+      <span>📶</span>
+      <span>♥ Monthsary Edition</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ MAIN LOVE PAGE ═══════════════════ -->
+  <main id="main-page" class="main-page hidden">
+
+    <!-- Floating petals -->
+    <div class="petals" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="hero">
+      <p class="hero-eyebrow">June 1, 2026</p>
+      <h1 class="hero-title">Happy 1st Monthsary</h1>
+      <p class="hero-subtitle">One month of us — and I'd choose you again every single time.</p>
+    </header>
+
+    <!-- Photo Slideshow -->
+    <section class="slideshow-section">
+      <h2 class="section-title">Our Pictures Together</h2>
+      <p class="section-desc">First and Second Meeting Together.</p>
+      <div class="slideshow-wrapper photo-slideshow-wrapper" id="photo-slideshow-wrapper">
+        <div class="slideshow" id="slideshow">
+          <!-- Slides injected by JS -->
+        </div>
+        <button class="slide-nav slide-prev" id="photo-prev" aria-label="Previous photo">‹</button>
+        <button class="slide-nav slide-next" id="photo-next" aria-label="Next photo">›</button>
+        <p class="photo-counter" id="photo-counter"></p>
+        <div class="slideshow-dots" id="slideshow-dots"></div>
+      </div>
+    </section>
+
+    <!-- Video Slideshow -->
+    <section class="video-section" id="video-section">
+      <h2 class="section-title">Our Moments in Motion</h2>
+      <p class="section-desc">Little clips I never want to forget.</p>
+      <div class="slideshow-wrapper video-slideshow-wrapper">
+        <div class="slideshow" id="video-slideshow"></div>
+        <button class="slide-nav slide-prev" id="video-prev" aria-label="Previous video">‹</button>
+        <button class="slide-nav slide-next" id="video-next" aria-label="Next video">›</button>
+        <button class="video-mute-btn" id="video-mute-btn" aria-label="Unmute video">🔇</button>
+        <div class="slideshow-caption" id="video-caption"></div>
+        <div class="slideshow-dots" id="video-dots"></div>
+      </div>
+    </section>
+
+    <!-- Spotify Music -->
+    <section class="music-section">
+      <h2 class="section-title">Our Soundtrack</h2>
+      <p class="section-desc">Every song reminds me of you.</p>
+      <div class="spotify-wrapper">
+        <div id="spotify-embed-visible"></div>
+      </div>
+    </section>
+
+    <!-- Love Letter -->
+    <section class="letter-section">
+      <div class="letter-envelope">
+        <div class="letter-paper">
+          <p class="letter-date">June 1, 2026</p>
+          <h2 class="letter-greeting">My Dearest Love,</h2>
+          <div class="letter-body">
+            <p>
+              Happy first monthsary, my baby/lovie/wifey/nana! Can you believe it's already been a month since
+              <strong>May 1, 2026</strong> — the day we officially became us? It feels like
+              yesterday and forever at the same time.
+            </p>
+            <p>
+              I made this little page just for you, with pictures sa atoa first and second meet hehe. 
+              Every photo here holds a piece of my heart,
+              and every note in the playlist is a reminder of how lucky I am to call you mine.
+            </p>
+            <p>
+              <!-- ✏️ Edit your letter below — write from the heart -->
+              Thank you for your smile, your patience, your laugh, and the way you make
+              ordinary days feel extraordinary. I love you more than words on a screen
+              could ever say and I promise to always be here for you, no matter what baby.
+              I will always find ways to visit you always dira sa cebu and achieve my dream of living in cebu with you.
+            </p>
+            <p>
+              Here's to us. To many more months, years, and adventures together.
+            </p>
+          </div>
+          <p class="letter-signoff">
+            Forever yours,<br>
+            <span class="letter-signature">Kayang ♥</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Virtual Flower Bouquet -->
+    <section class="bouquet-section">
+      <h2 class="section-title">A Bouquet For You</h2>
+      <p class="section-desc">Because one month with you deserves flowers.</p>
+      <div class="bouquet-scene" id="bouquet-scene">
+        <svg class="bouquet-svg" viewBox="0 0 400 420" aria-hidden="true">
+          <!-- Wrapping paper -->
+          <path class="bouquet-wrap" d="M120 380 Q200 340 280 380 L300 420 L100 420 Z"/>
+          <path class="bouquet-wrap-fold" d="M165 385 L200 360 L235 385" fill="none" stroke="#d4a574" stroke-width="1.5" opacity="0.5"/>
+
+          <!-- Ribbon -->
+          <path class="bouquet-ribbon" d="M185 375 Q200 395 215 375 Q200 410 200 420"/>
+          <ellipse class="bouquet-ribbon-bow" cx="200" cy="372" rx="18" ry="10"/>
+
+          <!-- Stems -->
+          <g class="bouquet-stems">
+            <path d="M200 370 Q195 300 170 220" stroke="#5a8f5a" stroke-width="3" fill="none"/>
+            <path d="M200 370 Q205 290 230 210" stroke="#4a7a4a" stroke-width="3" fill="none"/>
+            <path d="M200 370 Q200 280 200 190" stroke="#6b9e6b" stroke-width="3.5" fill="none"/>
+            <path d="M200 370 Q190 310 150 240" stroke="#5a8f5a" stroke-width="2.5" fill="none"/>
+            <path d="M200 370 Q210 310 250 230" stroke="#4a7a4a" stroke-width="2.5" fill="none"/>
+          </g>
+
+          <!-- Leaves -->
+          <g class="bouquet-leaves">
+            <ellipse cx="178" cy="300" rx="14" ry="7" fill="#6b9e6b" transform="rotate(-35 178 300)"/>
+            <ellipse cx="222" cy="290" rx="14" ry="7" fill="#5a8f5a" transform="rotate(40 222 290)"/>
+            <ellipse cx="165" cy="260" rx="12" ry="6" fill="#4a7a4a" transform="rotate(-50 165 260)"/>
+            <ellipse cx="238" cy="255" rx="12" ry="6" fill="#6b9e6b" transform="rotate(55 238 255)"/>
+            <ellipse cx="192" cy="240" rx="11" ry="5" fill="#5a8f5a" transform="rotate(-20 192 240)"/>
+            <ellipse cx="210" cy="235" rx="11" ry="5" fill="#4a7a4a" transform="rotate(25 210 235)"/>
+          </g>
+
+          <!-- Baby's breath -->
+          <g class="bouquet-babysbreath" opacity="0.85">
+            <circle cx="130" cy="250" r="2" fill="#fff"/>
+            <circle cx="138" cy="242" r="1.5" fill="#fff"/>
+            <circle cx="125" cy="238" r="1.5" fill="#fff"/>
+            <circle cx="270" cy="245" r="2" fill="#fff"/>
+            <circle cx="278" cy="238" r="1.5" fill="#fff"/>
+            <circle cx="265" cy="232" r="1.5" fill="#fff"/>
+            <circle cx="155" cy="200" r="1.5" fill="#fff"/>
+            <circle cx="245" cy="195" r="1.5" fill="#fff"/>
+            <circle cx="175" cy="175" r="2" fill="#fff"/>
+            <circle cx="225" cy="170" r="2" fill="#fff"/>
+          </g>
+
+          <!-- Roses -->
+          <g class="bouquet-flower f1">
+            <circle cx="200" cy="175" r="22" fill="#e8899e"/>
+            <circle cx="200" cy="175" r="16" fill="#f0a0b4"/>
+            <circle cx="200" cy="175" r="9" fill="#f9c0d0"/>
+            <circle cx="196" cy="171" r="4" fill="#ffe0ea" opacity="0.7"/>
+          </g>
+          <g class="bouquet-flower f2">
+            <circle cx="165" cy="210" r="18" fill="#d87890"/>
+            <circle cx="165" cy="210" r="13" fill="#e895a8"/>
+            <circle cx="165" cy="210" r="7" fill="#f5b0c0"/>
+          </g>
+          <g class="bouquet-flower f3">
+            <circle cx="235" cy="200" r="18" fill="#e8899e"/>
+            <circle cx="235" cy="200" r="13" fill="#f0a0b4"/>
+            <circle cx="235" cy="200" r="7" fill="#f9c0d0"/>
+          </g>
+          <g class="bouquet-flower f4">
+            <circle cx="145" cy="235" r="14" fill="#c76b8a"/>
+            <circle cx="145" cy="235" r="10" fill="#e8899e"/>
+            <circle cx="145" cy="235" r="5" fill="#f0b0c4"/>
+          </g>
+          <g class="bouquet-flower f5">
+            <circle cx="255" cy="225" r="14" fill="#d87890"/>
+            <circle cx="255" cy="225" r="10" fill="#e895a8"/>
+            <circle cx="255" cy="225" r="5" fill="#f5b8c8"/>
+          </g>
+          <g class="bouquet-flower f6">
+            <circle cx="185" cy="145" r="12" fill="#f0a0b4"/>
+            <circle cx="185" cy="145" r="8" fill="#f9c0d0"/>
+            <circle cx="185" cy="145" r="4" fill="#ffe8f0"/>
+          </g>
+          <g class="bouquet-flower f7">
+            <circle cx="218" cy="140" r="12" fill="#e8899e"/>
+            <circle cx="218" cy="140" r="8" fill="#f5b0c4"/>
+            <circle cx="218" cy="140" r="4" fill="#ffd8e4"/>
+          </g>
+        </svg>
+        <p class="bouquet-note">Tap the bouquet ♥</p>
+        <div class="bouquet-petals" id="bouquet-petals" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <footer class="page-footer">
+      <p>May 1 → June 1, 2026 · ♥</p>
+    </footer>
+
+  </main>
+
+  <!-- Spotify embed host (outside hidden main-page so iframe can load) -->
+  <div id="spotify-embed-host" class="spotify-embed-host" aria-hidden="true"></div>
+
+  <!-- Floating vinyl player -->
+  <div id="vinyl-player" class="vinyl-player hidden" aria-label="Music player">
+    <div class="vinyl-body">
+      <button class="vinyl-disc-btn" id="vinyl-disc-btn" aria-label="Play or pause">
+        <div class="vinyl-disc" id="vinyl-disc">
+          <div class="vinyl-grooves"></div>
+          <div class="vinyl-label">
+            <span class="vinyl-label-heart">♥</span>
+            <span class="vinyl-label-text">Our Playlist</span>
+          </div>
+        </div>
+      </button>
+      <div class="vinyl-controls">
+        <button class="vinyl-btn" id="spotify-prev" aria-label="Previous song">⏮</button>
+        <button class="vinyl-btn vinyl-btn-main" id="spotify-play" aria-label="Play">▶</button>
+        <button class="vinyl-btn" id="spotify-next" aria-label="Next song">⏭</button>
+      </div>
+      <p class="vinyl-track" id="vinyl-track">Our soundtrack awaits ♪</p>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
